@@ -6,6 +6,9 @@
                 <div class="card text-center">
                     <div class="card-header">Houses</div>
                     <div class="card-body">
+                        <div class="mt-2 mb-2 d-flex flex-row-reverse">
+                            <a href="{{ route('house_register_form') }}" type="button" class="btn btn-primary">Register new house</a>
+                        </div>
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -20,8 +23,8 @@
                                     <th scope="row">{{ $house->id }}</th>
                                     <td colspan="2">{{ $house->house_name }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <a type="button" class="btn btn-primary">Edit</a>
+                                        <a type="button" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

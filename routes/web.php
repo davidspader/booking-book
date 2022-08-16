@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
 /*
@@ -14,7 +15,11 @@ use App\Http\Controllers\HouseController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    if(!Auth::check()){
+        return view('auth.login');
+    }
+
+    return Redirect::route('houses');
 });
 
 Auth::routes();
@@ -22,3 +27,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/houses', [HouseController::class, 'index'])->name('houses');
+Route::get('/houses/register', [HouseController::class, 'registerForm'])->name('house_register_form');

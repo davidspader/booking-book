@@ -15,4 +15,9 @@ class HouseController extends Controller
         $houses = DB::table('houses')->where('user_id', $id)->get();
         return view('house.index', compact('houses'));
     }
+
+    public function registerForm()
+    {
+        return view('house.product_register');
+    }
 }
