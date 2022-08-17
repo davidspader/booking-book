@@ -7,7 +7,7 @@
                     <div class="card-header">Houses</div>
                     <div class="card-body">
                         <div class="mt-2 mb-2 d-flex flex-row-reverse">
-                            <a href="{{ route('house_register_form') }}" type="button" class="btn btn-primary">Register new house</a>
+                            <a href="{{ route('house_create') }}" type="button" class="btn btn-primary">Register new house</a>
                         </div>
                         <table class="table table-striped table-bordered">
                             <thead>

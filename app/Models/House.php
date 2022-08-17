@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class House extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'identification'
+        'house_name', 'slug', 'user_id'
     ];
 }

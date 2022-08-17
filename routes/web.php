@@ -27,4 +27,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/houses', [HouseController::class, 'index'])->name('houses');
-Route::get('/houses/register', [HouseController::class, 'registerForm'])->name('house_register_form');
+Route::get('/houses/register', [HouseController::class, 'create'])->name('house_create');
+Route::post('/houses/register', [HouseController::class, 'store'])->name('house_store');
+
