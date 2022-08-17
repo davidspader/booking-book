@@ -36,4 +36,10 @@ class HouseController extends Controller
 
         return Redirect::route('houses');
     }
+
+    public function destroy(House $house)
+    {
+        $house->delete();
+        return Redirect::route('houses');
+    }
 }

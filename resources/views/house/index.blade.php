@@ -24,7 +24,7 @@
                                     <td colspan="2">{{ $house->house_name }}</td>
                                     <td>
                                         <a type="button" class="btn btn-primary">Edit</a>
-                                        <a type="button" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('house_destroy', $house->id) }}" type="button" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

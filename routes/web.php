@@ -29,4 +29,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/houses', [HouseController::class, 'index'])->name('houses');
 Route::get('/houses/register', [HouseController::class, 'create'])->name('house_create');
 Route::post('/houses/register', [HouseController::class, 'store'])->name('house_store');
+Route::get('/houses/{house}/delete', [HouseController::class, 'destroy'])->name('house_destroy');
 
