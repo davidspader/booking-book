@@ -4,10 +4,11 @@
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card text-center">
-                    <div class="card-header">Register new house</div>
+                    <div class="card-header">Update house name</div>
                     <div class="card-body">
-                        <form action="{{ route('house_store') }}" method="POST" class="form-inline">
+                        <form action="{{ route('house_update', $house->id) }}" method="POST" class="form-inline">
                             @csrf
+                            @method('put')
                             <label class="sr-only" for="inlineFormInputName2">House name</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="house_name" name="house_name"
                                    placeholder="House name">

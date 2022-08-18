@@ -37,6 +37,22 @@ class HouseController extends Controller
         return Redirect::route('houses');
     }
 
+    public function edit(House $house)
+    {
+        return view('house.product_edit', compact('house'));
+    }
+
+    public function update(House $house, Request $request)
+    {
+        $houseValid = $request->validate([
+            'house_name' => 'required',
+        ]);
+
+        $house->fill($houseValid);
+        $house->save();
+        return Redirect::route('houses');
+    }
+
     public function destroy(House $house)
     {
         $house->delete();
