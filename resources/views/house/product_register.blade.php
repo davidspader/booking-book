@@ -11,6 +11,9 @@
                             <label class="sr-only" for="inlineFormInputName2">House name</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="house_name" name="house_name"
                                    placeholder="House name">
+                            @error('house_name')
+                            <div class="text-sm-start text-danger">{{ $message }}</div>
+                            @endif
                             <button type="submit" class="btn btn-primary mb-2">Submit</button>
                         </form>
                     </div>
