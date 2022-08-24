@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('house_id');
-            $table->foreign('house_id')->references('id')->on('house')->onDelete('cascade');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
             $table->timestamp('initial_date');
             $table->timestamp('final_date');
             $table->decimal('daily_price');
