@@ -21,7 +21,7 @@
                             @foreach($houses as $house)
                                 <tr>
                                     <th scope="row">{{ $house->id }}</th>
-                                    <td colspan="2"><a href="{{ route('rents', Auth::id()), $house->id }}"> {{ $house->house_name }}</a></td>
+                                    <td colspan="2"><a href="{{ route('rents', [Auth::id(), $house->id]) }}"> {{ $house->house_name }}</a></td>
                                     <td>
                                         <a href="{{ route('house_edit', $house->id) }}" type="button" class="btn btn-primary">Edit</a>
                                         <a href="{{ route('house_destroy', $house->id) }}" type="button" class="btn btn-danger">Delete</a>

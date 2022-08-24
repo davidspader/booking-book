@@ -34,5 +34,5 @@ Route::get('/houses/{house}/edit', [HouseController::class, 'edit'])->name('hous
 Route::put('/houses/{house}', [HouseController::class, 'update'])->name('house_update');
 Route::get('/houses/{house}/delete', [HouseController::class, 'destroy'])->name('house_destroy');
 
-Route::get('/rents/{id}', [RentController::class, 'index'])->name('rents');
+Route::get('/rents/{user}/{house}', [RentController::class, 'index'])->name('rents');
 

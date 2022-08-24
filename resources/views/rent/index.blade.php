@@ -1,11 +1,10 @@
-{{dd($user->id)}}
 @extends('layouts.app')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card text-center">
-                    <div class="card-header">Rents</div>
+                    <div class="card-header">{{ $house->house_name }} Rents</div>
                     <div class="card-body">
                         <div class="mt-2 mb-2 d-flex flex-row-reverse">
                             <a href="" type="button" class="btn btn-primary">Register new rent</a>
@@ -14,7 +13,6 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <td>house id</td>
                                 <td>Initial date</td>
                                 <td>Final date</td>
                                 <td>Daily Price</td>
@@ -27,7 +25,6 @@
                             @foreach($rents as $rent)
                                 <tr>
                                     <th>{{ $rent->id }}</th>
-                                    <td>{{ $rent->house_id }}</td>
                                     <td>{{ $rent->initial_date }}</td>
                                     <td>{{ $rent->final_date }}</td>
                                     <td>{{ $rent->daily_price }}</td>

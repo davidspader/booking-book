@@ -12,10 +12,8 @@ class RentController extends Controller
 {
     public function index (User $user, House $house)
     {
-
-//        $id = Auth::id();
-//        $rents = DB::table('rents')->where('user_id', $id)->get();
-        return view('rent.index', compact(['user', 'house']));
+        $rents = DB::table('rents')->where('user_id', $user->id)->where('house_id', $house->id)->get();
+        return view('rent.index', compact(['rents', 'house']));
     }
 
 }
