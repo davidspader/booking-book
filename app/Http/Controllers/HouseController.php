@@ -20,7 +20,7 @@ class HouseController extends Controller
 
     public function create()
     {
-        return view('house.product_register');
+        return view('house.house_register');
     }
 
     public function store(Request $request)
@@ -39,7 +39,7 @@ class HouseController extends Controller
 
     public function edit(House $house)
     {
-        return view('house.product_edit', compact('house'));
+        return view('house.house_edit', compact('house'));
     }
 
     public function update(House $house, Request $request)
