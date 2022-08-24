@@ -50,9 +50,6 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('rents') }}">Rents</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('houses') }}">Houses</a>
                             </li>
                             <li class="nav-item dropdown">
