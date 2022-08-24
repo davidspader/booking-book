@@ -23,13 +23,17 @@
                             </thead>
                             <tbody>
                             @foreach($rents as $rent)
+                                <?php
+                                    $initial_date = new DateTime($rent->initial_date);
+                                    $final_date = new DateTime($rent->final_date);
+                                ?>
                                 <tr>
                                     <th>{{ $rent->id }}</th>
-                                    <td>{{ $rent->initial_date }}</td>
-                                    <td>{{ $rent->final_date }}</td>
-                                    <td>{{ $rent->daily_price }}</td>
-                                    <td>{{ $rent->cleaning_price }}</td>
-                                    <td>{{ $rent->discount }}</td>
+                                    <td>{{ $initial_date->format('d/m/Y') }}</td>
+                                    <td>{{ $final_date->format('d/m/Y') }}</td>
+                                    <td>R$ {{ number_format($rent->daily_price, 2, ',', '.') }}</td>
+                                    <td>R$ {{ number_format($rent->cleaning_price, 2, ',', '.') }}</td>
+                                    <td>R$ {{ number_format($rent->discount, 2, ',', '.') }}</td>
                                     <td>
                                         <a href="" type="button" class="btn btn-primary">Edit</a>
                                         <a href="" type="button" class="btn btn-danger">Delete</a>
