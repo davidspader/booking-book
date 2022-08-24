@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
@@ -32,4 +33,6 @@ Route::post('/houses/register', [HouseController::class, 'store'])->name('house_
 Route::get('/houses/{house}/edit', [HouseController::class, 'edit'])->name('house_edit');
 Route::put('/houses/{house}', [HouseController::class, 'update'])->name('house_update');
 Route::get('/houses/{house}/delete', [HouseController::class, 'destroy'])->name('house_destroy');
+
+Route::get('/rents', [RentController::class, 'index'])->name('rents');
 
