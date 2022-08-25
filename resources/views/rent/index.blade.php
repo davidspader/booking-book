@@ -37,7 +37,7 @@
                                     <td>R$ {{ number_format($rent->discount, 2, ',', '.') }}</td>
                                     <td>R$ {{ number_format($total_receivable, 2, ',', '.') }}</td>
                                     <td>
-                                        <a href="" type="button" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('rent_edit', [Auth::id(), $rent->id]) }}" type="button" class="btn btn-primary">Edit</a>
                                         <a href="" type="button" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

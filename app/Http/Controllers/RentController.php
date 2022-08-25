@@ -41,4 +41,25 @@ class RentController extends Controller
         return Redirect::route('rents', [$user->id, $house->id]);
     }
 
+    public function edit(User $user, Rent $rent)
+    {
+        return view('rent.rent_edit', compact(['user', 'rent']));
+    }
+
+    public function update(User $user, Rent $rent, Request $request)
+    {
+        $rentValid = $request->validate([
+            'initial_date' => 'date|required',
+            'final_date' => 'date|required',
+            'daily_price' => 'numeric|required',
+            'cleaning_price' => 'numeric|required',
+            'discount' => 'numeric|required'
+        ]);
+
+        $rent->fill($rentValid);
+        $rent->save();
+
+        return Redirect::route('rents', [$user->id, $rent->house_id]);
+    }
+
 }
