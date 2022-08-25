@@ -7,7 +7,7 @@
                     <div class="card-header">{{ $house->house_name }} Rents</div>
                     <div class="card-body">
                         <div class="mt-2 mb-2 d-flex flex-row-reverse">
-                            <a href="" type="button" class="btn btn-primary">Register new rent</a>
+                            <a href="{{ route('rent_create', [Auth::id(), $house->id] )}}" type="button" class="btn btn-primary">Register new rent</a>
                         </div>
                         <table class="table table-striped table-bordered">
                             <thead>
