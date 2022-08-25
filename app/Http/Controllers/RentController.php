@@ -62,4 +62,10 @@ class RentController extends Controller
         return Redirect::route('rents', [$user->id, $rent->house_id]);
     }
 
+    public function destroy(User $user, Rent $rent)
+    {
+        $rent->delete();
+        return Redirect::route('rents', [$user->id, $rent->house_id]);
+    }
+
 }

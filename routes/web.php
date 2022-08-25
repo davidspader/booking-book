@@ -38,7 +38,7 @@ Route::get('/rents/{user}/{house}', [RentController::class, 'index'])->name('ren
 Route::get('/rents/register/{user}/{house}', [RentController::class, 'create'])->name('rent_create');
 Route::post('/rents/register/{user}/{house}', [RentController::class, 'store'])->name('rent_store');
 Route::get('/rents/edit/{user}/{rent}', [RentController::class, 'edit'])->name('rent_edit');
-Route::put('/houses/{user}/{rent}', [RentController::class, 'update'])->name('rent_update');
-
+Route::put('/rents/{user}/{rent}', [RentController::class, 'update'])->name('rent_update');
+Route::get('/rents/{user}/{rent}/delete', [RentController::class, 'destroy'])->name('rent_destroy');
 
 
