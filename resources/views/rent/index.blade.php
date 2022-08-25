@@ -12,12 +12,12 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <td>Initial date</td>
                                 <td>Final date</td>
                                 <td>Daily Price</td>
                                 <td>Cleaning Price</td>
                                 <td>discount</td>
+                                <td>total receivable</td>
                                 <td>Actions</td>
                             </tr>
                             </thead>
@@ -26,14 +26,16 @@
                                 <?php
                                     $initial_date = new DateTime($rent->initial_date);
                                     $final_date = new DateTime($rent->final_date);
+                                    $dateInterval = $initial_date->diff($final_date);
+                                    $total_receivable = (($dateInterval->days * $rent->daily_price) + $rent->cleaning_price) - $rent->discount;
                                 ?>
                                 <tr>
-                                    <th>{{ $rent->id }}</th>
                                     <td>{{ $initial_date->format('d/m/Y') }}</td>
                                     <td>{{ $final_date->format('d/m/Y') }}</td>
                                     <td>R$ {{ number_format($rent->daily_price, 2, ',', '.') }}</td>
                                     <td>R$ {{ number_format($rent->cleaning_price, 2, ',', '.') }}</td>
                                     <td>R$ {{ number_format($rent->discount, 2, ',', '.') }}</td>
+                                    <td>R$ {{ number_format($total_receivable, 2, ',', '.') }}</td>
                                     <td>
                                         <a href="" type="button" class="btn btn-primary">Edit</a>
                                         <a href="" type="button" class="btn btn-danger">Delete</a>
