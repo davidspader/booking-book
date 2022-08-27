@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HouseRequest;
 use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,11 +24,9 @@ class HouseController extends Controller
         return view('house.house_register');
     }
 
-    public function store(Request $request)
+    public function store(HouseRequest $request)
     {
-        $house = $request->validate([
-            'house_name' => 'required',
-        ]);
+        $house = $request->validated();
 
         $house['user_id'] = Auth::id();
         $house['slug'] = Str::slug($house['house_name']);
@@ -42,11 +41,9 @@ class HouseController extends Controller
         return view('house.house_edit', compact('house'));
     }
 
-    public function update(House $house, Request $request)
+    public function update(House $house, HouseRequest $request)
     {
-        $houseValid = $request->validate([
-            'house_name' => 'required',
-        ]);
+        $houseValid = $request->validated();
 
         $house->fill($houseValid);
         $house->save();
