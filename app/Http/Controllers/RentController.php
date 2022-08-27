@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RentRequest;
 use App\Models\House;
 use App\Models\Rent;
 use App\Models\User;
@@ -23,15 +24,9 @@ class RentController extends Controller
         return view('rent.rent_create', compact(['user', 'house']));
     }
 
-    public function store(User $user, House $house, Request $request)
+    public function store(User $user, House $house, RentRequest $request)
     {
-        $rent = $request->validate([
-            'initial_date' => 'date|required',
-            'final_date' => 'date|required',
-            'daily_price' => 'numeric|required',
-            'cleaning_price' => 'numeric|required',
-            'discount' => 'numeric|required'
-        ]);
+        $rent = $request->validated();
 
         $rent['user_id'] = $user->id;
         $rent ['house_id'] = $house->id;
@@ -46,15 +41,9 @@ class RentController extends Controller
         return view('rent.rent_edit', compact(['user', 'rent']));
     }
 
-    public function update(User $user, Rent $rent, Request $request)
+    public function update(User $user, Rent $rent, RentRequest $request)
     {
-        $rentValid = $request->validate([
-            'initial_date' => 'date|required',
-            'final_date' => 'date|required',
-            'daily_price' => 'numeric|required',
-            'cleaning_price' => 'numeric|required',
-            'discount' => 'numeric|required'
-        ]);
+        $rentValid = $request->validated();
 
         $rent->fill($rentValid);
         $rent->save();
