@@ -20,12 +20,12 @@ class HouseController extends Controller
         return view('house.index', compact('houses'));
     }
 
-    public function create()
+    public function create(User $user)
     {
         return view('house.house_register');
     }
 
-    public function store(HouseRequest $request)
+    public function store(User $user, HouseRequest $request)
     {
         $house = $request->validated();
 

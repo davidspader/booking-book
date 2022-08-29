@@ -28,11 +28,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/houses', [HouseController::class, 'index'])->name('houses')->middleware('auth');
-Route::get('/houses/register/{user}', [HouseController::class, 'create'])->name('house_create')->middleware('auth');
-Route::post('/houses/register/{user}', [HouseController::class, 'store'])->name('house_store')->middleware('auth');
-Route::get('/houses/edit/{user}/{house}', [HouseController::class, 'edit'])->name('house_edit')->middleware('auth');
-Route::put('/houses/{user}/{house}', [HouseController::class, 'update'])->name('house_update')->middleware('auth');
-Route::get('/houses/{user}/{house}/delete', [HouseController::class, 'destroy'])->name('house_destroy')->middleware('auth');
+Route::get('/houses/register/{user}', [HouseController::class, 'create'])->name('house_create')->middleware(['auth', 'checkUserId']);
+Route::post('/houses/register/{user}', [HouseController::class, 'store'])->name('house_store')->middleware(['auth', 'checkUserId']);
+Route::get('/houses/edit/{user}/{house}', [HouseController::class, 'edit'])->name('house_edit')->middleware(['auth', 'checkUserId']);
+Route::put('/houses/{user}/{house}', [HouseController::class, 'update'])->name('house_update')->middleware(['auth', 'checkUserId']);
+Route::get('/houses/{user}/{house}/delete', [HouseController::class, 'destroy'])->name('house_destroy')->middleware(['auth', 'checkUserId']);
 
 Route::get('/rents/{user}/{house}', [RentController::class, 'index'])->name('rents')->middleware('auth');
 Route::get('/rents/register/{user}/{house}', [RentController::class, 'create'])->name('rent_create')->middleware('auth');
