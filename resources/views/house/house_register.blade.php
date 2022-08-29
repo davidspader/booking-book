@@ -6,7 +6,7 @@
                 <div class="card text-center">
                     <div class="card-header">Register new house</div>
                     <div class="card-body">
-                        <form action="{{ route('house_store') }}" method="POST" class="form-inline">
+                        <form action="{{ route('house_store', Auth::id()) }}" method="POST" class="form-inline">
                             @csrf
                             <label class="sr-only" for="inlineFormInputName2">House name</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="house_name" name="house_name"

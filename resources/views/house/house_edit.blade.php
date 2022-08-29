@@ -6,7 +6,7 @@
                 <div class="card text-center">
                     <div class="card-header">Update house name</div>
                     <div class="card-body">
-                        <form action="{{ route('house_update', $house->id) }}" method="POST" class="form-inline">
+                        <form action="{{ route('house_update', [Auth::id(), $house->id]) }}" method="POST" class="form-inline">
                             @csrf
                             @method('put')
                             <label class="sr-only" for="inlineFormInputName2">House name</label>

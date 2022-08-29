@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\HouseRequest;
 use App\Models\House;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,12 +37,12 @@ class HouseController extends Controller
         return Redirect::route('houses');
     }
 
-    public function edit(House $house)
+    public function edit(User $user, House $house)
     {
         return view('house.house_edit', compact('house'));
     }
 
-    public function update(House $house, HouseRequest $request)
+    public function update(User $user, House $house, HouseRequest $request)
     {
         $houseValid = $request->validated();
 
@@ -50,7 +51,7 @@ class HouseController extends Controller
         return Redirect::route('houses');
     }
 
-    public function destroy(House $house)
+    public function destroy(User $user, House $house)
     {
         $house->delete();
         return Redirect::route('houses');
