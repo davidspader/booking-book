@@ -34,11 +34,11 @@ Route::get('/houses/edit/{user}/{house}', [HouseController::class, 'edit'])->nam
 Route::put('/houses/{user}/{house}', [HouseController::class, 'update'])->name('house_update')->middleware(['auth', 'checkUserId']);
 Route::get('/houses/{user}/{house}/delete', [HouseController::class, 'destroy'])->name('house_destroy')->middleware(['auth', 'checkUserId']);
 
-Route::get('/rents/{user}/{house}', [RentController::class, 'index'])->name('rents')->middleware('auth');
-Route::get('/rents/register/{user}/{house}', [RentController::class, 'create'])->name('rent_create')->middleware('auth');
-Route::post('/rents/register/{user}/{house}', [RentController::class, 'store'])->name('rent_store')->middleware('auth');
-Route::get('/rents/edit/{user}/{rent}', [RentController::class, 'edit'])->name('rent_edit')->middleware('auth');
-Route::put('/rents/{user}/{rent}', [RentController::class, 'update'])->name('rent_update')->middleware('auth');
-Route::get('/rents/{user}/{rent}/delete', [RentController::class, 'destroy'])->name('rent_destroy')->middleware('auth');
+Route::get('/rents/{user}/{house}', [RentController::class, 'index'])->name('rents')->middleware(['auth', 'checkUserId']);
+Route::get('/rents/register/{user}/{house}', [RentController::class, 'create'])->name('rent_create')->middleware(['auth', 'checkUserId']);
+Route::post('/rents/register/{user}/{house}', [RentController::class, 'store'])->name('rent_store')->middleware(['auth', 'checkUserId']);
+Route::get('/rents/edit/{user}/{rent}', [RentController::class, 'edit'])->name('rent_edit')->middleware(['auth', 'checkUserId']);
+Route::put('/rents/{user}/{rent}', [RentController::class, 'update'])->name('rent_update')->middleware(['auth', 'checkUserId']);
+Route::get('/rents/{user}/{rent}/delete', [RentController::class, 'destroy'])->name('rent_destroy')->middleware(['auth', 'checkUserId']);
 
 

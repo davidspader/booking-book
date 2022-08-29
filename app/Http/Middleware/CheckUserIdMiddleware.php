@@ -20,7 +20,7 @@ class CheckUserIdMiddleware
     {
         if($request->route()->parameter('user')->id != Auth::id())
         {
-            return redirect('/');
+            return redirect()->back();
         }
         return $next($request);
     }
