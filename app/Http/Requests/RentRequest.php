@@ -69,4 +69,3 @@ class RentRequest extends FormRequest
         return $value;
     }
 }
-//2019-04-02 15:25:37

@@ -13,7 +13,7 @@ class RentController extends Controller
 {
     public function index (User $user, House $house)
     {
-        $rents = DB::table('rents')->where('user_id', $user->id)->where('house_id', $house->id)->orderBy('final_date')->get();
+        $rents = DB::table('rents')->where('user_id', $user->id)->where('house_id', $house->id)->orderBy('initial_date')->get();
         return view('rent.index', compact(['rents', 'house']));
     }
 
