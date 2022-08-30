@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Date;
 
 class RentRequest extends FormRequest
 {
@@ -31,4 +32,41 @@ class RentRequest extends FormRequest
             'discount' => 'numeric|required'
         ];
     }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'initial_date' => $this->prepareData($this['initial_date'], 'initial'),
+            'final_date' => $this->prepareData($this['final_date'], 'final'),
+            'daily_price' => $this->prepareToValueZero($this['daily_price']),
+            'cleaning_price' => $this->prepareToValueZero($this['cleaning_price']),
+            'discount' => $this->prepareToValueZero($this['discount']),
+        ]);
+    }
+
+    public function prepareData($data, $dataType)
+    {
+        $data = explode("/", $data);
+        $data = $data[2]."-".$data[1]."-".$data[0];
+
+        if($dataType == 'initial'){
+            $data .= " 14:00:00";
+        }elseif($dataType == 'final') {
+            $data .= " 10:00:00";
+        }else {
+            return null;
+        }
+
+        return $data;
+    }
+
+    public function prepareToValueZero($value)
+    {
+        if($value == null){
+            $value = 0;
+        }
+
+        return $value;
+    }
 }
+//2019-04-02 15:25:37

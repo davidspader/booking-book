@@ -24,6 +24,7 @@ class RentController extends Controller
 
     public function store(User $user, House $house, RentRequest $request)
     {
+
         $rent = $request->validated();
 
         $rent['user_id'] = $user->id;
